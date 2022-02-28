@@ -1,0 +1,44 @@
+Links
+zombie primer
+http://lifeexample.ru/php-primeryi-skriptov/abstraktnyiy-klass-php.html
+
+hotexamples
+https://hotexamples.com/ru/examples/-/Product/getPrice/php-product-getprice-method-examples.html
+
+class product-getprice-method-examples
+https://linuxhint.com/class_objects_php/
+
+Creating a PHP Shopping Basket Part 3 - Creating the Product object
+https://www.culttt.com/2015/02/04/creating-php-shopping-basket-part-3-creating-product-object
+
+button on click
+https://www.codegrepper.com/code-examples/html/onclick+load+another+html+page+in+same+page
+
+boljshoj tutoruial
+https://only-to-top.ru/blog/programming/2021-01-25-php-oop-mysql.html
+
+git
+https://hyperhost.ua/info/ru/kak-zagruzit-faylyi-na-udalennyiy-repozitoriy-rabota-s-github
+
+git2
+https://habr.com/ru/post/273897/
+
+git uroki
+https://gitjournal.tech/github-chto-jeto-takoe-i-kak-ego-ispolzovat/#__Github-2
+
+git vetvlenie
+https://git-scm.com/book/ru/v2/%D0%92%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-Git-%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D0%B2%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B8-%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D1%8F
+
+nastrojka vs code dlja php-primeryi-skriptov/abstraktnyiy-klass-phphttps://guides.hexlet.io/vscode-for-php-setup/#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8
+
+
+cart tutorial
+https://code.tutsplus.com/tutorials/build-a-shopping-cart-with-php-and-mysql--net-5144
+
+cart with checkout system
+https://dcodemania.com/post/shopping-cart-with-checkout-system-php-mysqli-ajax
+
+////
+icon
+https://fontawesome.com/v5/icons/cut?s=light
+
