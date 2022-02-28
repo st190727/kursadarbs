@@ -1,0 +1,37 @@
+sozdatj vetku 'implement-new-logic'
+
+$ git branch implement-new-logic
+
+
+perejti na vetku kot sozdali
+git checkout implement-new-logic
+
+add info in file
+
+
+git add .
+git commit -m "Added getPerson function"
+git push
+
+perejti nazad na vetku master
+git checkout master
+
+. Для того, что смерджить нашу ветку implement-new-logic в мастер, нам нужно сначала перейти на мастер и потом написать какую ветку мы хотим влить.
+
+Давайте напишем
+
+git merge implement-new-logic
+
+
+Как мы видим, у нас написало, что ветка обновилась и добавился файл 2.js. Теперь у нас ветки стали идентичные и добавленный нами функционал находится в мастер ветке. Если мы напишем
+
+git log
+то увидим наш коммит, который мы добавляли на другой ветке. Так как мы ветку уже смерджили и она нам не нужна больше, давайте ее удалим.
+
+git branch -d implement-new-logic
+
+Теперь написав git branch мы опять видим только мастер. Давайте запушим эти изменения.
+
+git add .
+git commit -m "Merged implementing new logic to master"
+git push
