@@ -7,7 +7,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="author" content="Sahil Kumar">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Cart</title>
@@ -110,7 +109,7 @@
                     Shopping</a>
                 </td>
                 <td colspan="2"><b>Grand Total</b></td>
-                <td><b><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;<?= number_format($grand_total,2); ?></b></td>
+                <td><b><i class="fa-solid fa-euro-sign"></i>&nbsp;&nbsp;<?= number_format($grand_total,2); ?></b></td>
                 <td>
                   <a href="checkout.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i class="far fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
                 </td>
