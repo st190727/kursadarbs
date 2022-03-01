@@ -8,7 +8,7 @@
   <title>Shopping Cart Salon</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
-
+<script src="https://kit.fontawesome.com/b5e4ff924a.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -22,13 +22,13 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php"><i class="fas fa-cut"></i>Products</a>
+          <a class="nav-link active" href="index.php"><i class="fas fa-cut"></i> Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fas fa-th-list mr-2"></i>Categories</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
+          <a class="nav-link" href="checkout.php"><i class="fa-solid fa-money-check"></i> Checkout</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
@@ -55,7 +55,7 @@
             <img src="<?= $row['product_image'] ?>" class="card-img-top" height="250">
             <div class="card-body p-1">
               <h6 class="card-title text-center text-info"><?= $row['product_name'] ?></h6>
-              <h6 class="card-text text-center text-danger"><i class="fa-regular fa-euro-sign"></i>&nbsp;&nbsp;<?= number_format($row['product_price'],2) ?></h6>
+              <h6 class="card-text text-center text-danger"><i class="fa-solid fa-euro-sign"></i>&nbsp;&nbsp;<?= number_format($row['product_price'],2) ?></h6>
 
             </div>
             <div class="card-footer p-1">
