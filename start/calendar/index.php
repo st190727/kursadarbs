@@ -2,7 +2,7 @@
 require_once("config1.php");
 function build_calendar($month, $year) {
     $mysqli = new mysqli('localhost', 'root', '', 'salon');
-    /*$stmt = $mysqli->prepare("select * from bookings where MONTH(date) = ? AND YEAR(date) = ?");
+   $stmt = $mysqli->prepare("select * from bookings where MONTH(date) = ? AND YEAR(date) = ?");
     $stmt->bind_param('ss', $month, $year);
     $bookings = array();
     if($stmt->execute()){
@@ -14,7 +14,7 @@ function build_calendar($month, $year) {
             
             $stmt->close();
         }
-    }*/
+    }
     
     //Veidojam masīvu ar dienu nosaukumiem, sakums ar pirmdienu
      $daysOfWeek = array('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
@@ -50,13 +50,14 @@ function build_calendar($month, $year) {
     
     $calendar = "<table class='table table-bordered'>";
     $calendar .= "<center><h2>$monthName $year</h2>";
+	//Otra dala veidojam pogas iepriekšējais menesis un nākamais mēnesis
     $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</a> ";
     
     $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Current Month</a> ";
     
     $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a></center><br>";
     
-    
+    //Otra dala
         
       $calendar .= "<tr>";
 
@@ -99,13 +100,22 @@ function build_calendar($month, $year) {
           
           $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
           $date = "$year-$month-$currentDayRel";
-
-            if($dateToday==$date)
-			{
-          $calendar .="<td class='today'><h4>$currentDay</h4>";  
-			}
-			else{
-				$calendar .="<td><h4>$currentDay</h4>"; 
+         
+             $dayname = strtolower(date('l', strtotime($date)));
+            $eventNum = 0;
+            $today = $date==date('Y-m-d')? "today" : "";
+         if($date<date('Y-m-d')){
+             $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
+         }elseif(in_array($date, $bookings)){
+             $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Already Booked</button>";
+         }else{
+             $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+         }
+			
+			
+			
+		  $calendar .="<td>
+							<h4>$currentDay</h4>";
           $calendar .="</td>";
         // Papielinam skaitītajus
  
@@ -122,16 +132,15 @@ function build_calendar($month, $year) {
                 $calendar .= "<td class='empty'></td>"; 
 
          }
-
      }
-     
+
      $calendar .= "</tr>";
 
      $calendar .= "</table>";
 
      echo $calendar;
 
-}
+     }
 
 
 ?>
