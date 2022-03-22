@@ -13,6 +13,7 @@ if(isset($_GET['date'])){
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
+    $timeslot = $_POST['timeslot'];
     $stmt = $mysqli->prepare("select * from bookings where date = ?");
     $stmt->bind_param('s', $date);
     if($stmt->execute()){
@@ -20,8 +21,8 @@ if(isset($_POST['submit'])){
         if($result->num_rows>0){
             $msg = "<div class='alert alert-danger'>Already Booked</div>";
         }else{
-            $stmt = $mysqli->prepare("INSERT INTO bookings (name, email, date) VALUES (?,?,?)");
-            $stmt->bind_param('sss', $name, $email, $date);
+            $stmt = $mysqli->prepare("INSERT INTO bookings (name, timeslot, email, date) VALUES (?,?,?,?)");
+            $stmt->bind_param('ssss', $name, $timeslot, $email, $date);
             $stmt->execute();
             $msg = "<div class='alert alert-success'>Booking Successfull</div>";
             $stmt->close();
@@ -29,6 +30,34 @@ if(isset($_POST['submit'])){
         }
     }
 }
+//3 dala mainīgie
+$duration = 30;
+$cleanup = 0;
+$start = "09:00";
+$end = "15:00";
+
+function timeslots($duration, $cleanup, $start, $end){
+    $start = new DateTime($start);
+    $end = new DateTime($end);
+    $interval = new DateInterval("PT".$duration."M");
+    $cleanupInterval = new DateInterval("PT".$cleanup."M");
+    $slots = array();
+    
+    for($intStart = $start; $intStart<$end; $intStart->add($interval)->add($cleanupInterval)){
+        $endPeriod = clone $intStart;
+        $endPeriod->add($interval);
+        if($endPeriod>$end){
+            break;
+        }
+        
+        $slots[] = $intStart->format("H:iA")." - ". $endPeriod->format("H:iA");
+        
+    }
+    
+    return $slots;
+}
+
+
 
 
 ?>
@@ -50,28 +79,77 @@ if(isset($_POST['submit'])){
   <body>
     <div class="container">
         <h1 class="text-center">Book for Date: <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr>
-        <div class="row">
-           <div class="col-md-6 col-md-offset-3">
-               <?php echo(isset($msg))?$msg:""; ?>
-               <form action="" method="post" autocomplete="off">
-                   <div class="form-group">
-                       <label for="">Name</label>
-                       <input required type="text" class="form-control" name="name">
-                   </div>
-                   <div class="form-group">
-                       <label for="">Email</label>
-                       <input required type="email" class="form-control" name="email">
-                   </div>
-                   <div class="form-group">
-                       <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                   </div>
-               </form>
-           </div>
-            
+		
+		
+		<div class="row">
+   <div class="col-md-12">
+       <?php echo(isset($msg))?$msg:""; ?>
+   </div>
+    <?php $timeslots = timeslots($duration, $cleanup, $start, $end); 
+        foreach($timeslots as $ts){
+    ?>
+    <div class="col-md-2">
+        <div class="form-group">
+           <button class="btn btn-success book" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+          
+
         </div>
     </div>
+    <?php } ?>
+</div>    
+    </div>
+	
+	//part4
+	<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Booking for: <span id="slot"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="" method="post">
+                               <div class="form-group">
+                                    <label for="">Time Slot</label>
+                                    <input readonly type="text" class="form-control" id="timeslot" name="timeslot">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Name</label>
+                                    <input required type="text" class="form-control" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input required type="email" class="form-control" name="email">
+                                </div>
+                                <div class="form-group pull-right">
+                                    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+	//part4
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <?php
+  /*add script part 4*/
+  ?>
+  <script>
+$(".book").click(function(){
+    var timeslot = $(this).attr('data-timeslot');
+    $("#slot").html(timeslot);
+    $("#timeslot").val(timeslot);
+    $("#myModal").modal("show");
+});
+</script>
   </body>
-
 </html>

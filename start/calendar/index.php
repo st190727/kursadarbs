@@ -2,7 +2,7 @@
 require_once("config1.php");
 function build_calendar($month, $year) {
     $mysqli = new mysqli('localhost', 'root', '', 'salon');
-   $stmt = $mysqli->prepare("select * from bookings where MONTH(date) = ? AND YEAR(date) = ?");
+  /* $stmt = $mysqli->prepare("select * from bookings where MONTH(date) = ? AND YEAR(date) = ?");
     $stmt->bind_param('ss', $month, $year);
     $bookings = array();
     if($stmt->execute()){
@@ -14,7 +14,7 @@ function build_calendar($month, $year) {
             
             $stmt->close();
         }
-    }
+    }*/
     
     //Veidojam masīvu ar dienu nosaukumiem, sakums ar pirmdienu
      $daysOfWeek = array('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
@@ -106,8 +106,6 @@ function build_calendar($month, $year) {
             $today = $date==date('Y-m-d')? "today" : "";
          if($date<date('Y-m-d')){
              $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
-         }elseif(in_array($date, $bookings)){
-             $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Already Booked</button>";
          }else{
              $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
          }
@@ -141,6 +139,8 @@ function build_calendar($month, $year) {
      echo $calendar;
 
      }
+	 
+
 
 
 ?>
