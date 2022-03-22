@@ -1,0 +1,9 @@
+{
+  "projectName": "kursadarbs",
+  "meta": {
+    "type": "frontend",
+    "starter": "mdb5-free-standard"
+  },
+  "packageManager": "npm",
+  "hash": "500fa8a8"
+}

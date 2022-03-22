@@ -1,0 +1,28 @@
+2 kursa darbs:
+kas ir izdarīts
+ - login
+ - registrācija
+ - 
+
+
+
+
+
+
+3 kursa darbs
+Shopping cart
+ - visu produktu no datu bāzes izvads
+ - produktu pievienošana, 
+ - viena produkta dzēšana, 
+ - visu produktu no groza dzēšana
+ - daudzumu maina grozā un kopejas summas maina
+ 
+ Planoju:
+ - paging?
+ - filtri ?
+ - produkta meklēšana ?
+ - izvēlēta produkta lapa ar aprakstu, detaļam ?
+ - produkta kartošana
+ - atlaide produktam
+ - piegades izmaksas
+ 

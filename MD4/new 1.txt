@@ -1,0 +1,28 @@
+<div class="container" >
+    <div class="row justify-content-md-center" >
+      <!--<div class="col-md-auto my-5 p-5" style="border:1px solid #cecece; border-radius: 0.25rem;">-->
+      <div class="col-md-auto my-5 p-5">
+        
+       
+      <form id="MyForm" action="" method="POST" style="border:1px solid #cecece; border-radius: 0.25rem; padding: 50px;">
+      
+        
+        <h2>Time add</h2>
+            <p>Please add Your data.</p>
+              <div class="mb-3 mt-4">
+                <label class="form-label" for="datums">Date</label>
+                <input class="form-control" type="date" name="datums" placeholder="dd-mm-yyyy">
+              </div>
+              <div class="mb-3 mt-4">
+                <label class="form-label" for="start">From</label>
+                <input class="form-control" type="datetime-local" id="start" name="start"  required>
+              </div>
+              <div class="mb-3 mt-4">						
+                <label class="form-label" for="end">To</label>
+                <input class="form-control" type="datetime-local" id="end" name="end"  required><br/><br/>
+              </div>
+            <button class="btn btn-primary mb-3" type="submit" name="submit">SUBMIT</button>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,20 @@
+.container-fluid
+{
+    height:50px;
+}
+
+
+.btn-light
+{
+    color: #59606d;
+    background-color: #c6f1e7;  
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #c6f1e7;
+    border-color: #c6f1e7;
+}
+a:hover {
+    color: #c6f1e7;
+}

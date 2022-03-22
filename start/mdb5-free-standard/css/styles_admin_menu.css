@@ -1,0 +1,56 @@
+
+.side-navbar {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #59606d;
+    transition: 0.5s;
+  }
+  .nav-link:active,
+  .nav-link:focus,
+  .nav-link:hover {
+    background-color: #ffffff26;
+  }
+  .my-container {
+    transition: 0.4s;
+  }
+  .active-nav {
+    margin-left: 0;
+  }
+  /* for main section */
+  
+  .active-cont {
+    margin-left: 180px;
+  }
+  #menu-btn {
+    background-color: #59606d;
+    color: #fff;
+    margin-left: -62px;
+  }
+
+  span.mx-2 
+  {
+      color: white;
+  }
+  
+  
+  li.nav-link>.mx-2>a
+  {
+	  color:white;
+	  text-decoration: none;
+
+  }
+  div.list-group.list-group-flush
+  {
+	  background-color: #ffffff26;
+  }
+body
+{
+	background-color:#c6f1e7;
+}
+  
+  
+
+
+ 

@@ -1,0 +1,19 @@
+{
+  "name": "mi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "copy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/st190727/kursadarbs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/st190727/kursadarbs/issues"
+  },
+  "homepage": "https://github.com/st190727/kursadarbs#readme"
+}
